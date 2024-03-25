@@ -1,0 +1,8 @@
+{% include "vueEntete.html" %}
+{% include "vueEnteteGestionnaire.html" %}
+<form action="/gestionnaire/Reservations/carte" method="POST">
+    <label for="carte_resa">Sélectionner un matricule :</label>
+    <input type="text" id="carte_resa" name="carte_resa" required>
+    <button type="submit">Valider</button>
+</form>
+{% include "vuePied.html" %}

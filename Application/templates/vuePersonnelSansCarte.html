@@ -1,0 +1,35 @@
+{% include "vueEntete.html" %}
+{% include "vueEnteteGestionnaire.html" %}
+
+<style>
+.SansCarte{ margin-bottom:10px; width:750px}
+table.padding { padding:20px}
+tr{border: 1px solid;}
+</style>
+<table class="SansCarte" cellspacing="20">
+	<thead>
+		<tr>
+			<th colspan="2">Matricule</th>
+			<th colspan="2">Nom</th>
+			<th colspan="2">Prénom</th>
+			<th colspan="2">service</th>
+			<th colspan="2"> </th>				
+		</tr>
+	</thead>
+	{% for i in SansCarte %}
+		<tbody>
+			<tr>
+				<td colspan="2">{{i['matricule']}}</td>
+				<td colspan="2">{{i['nom']}}</td>
+				<td colspan="2">{{i['prenom']}}</td>	
+				<td colspan="2">{{i['nomService']}} </td>
+				<td colspan="2"><a type="button" class="creerCompte-toggle collapsed" data-toggle="collapse" data-target="creerCompte" href="/gestionnaire/Personnel/SansCarte/CréerCarte">Créer Carte</a></td>
+			</tr>
+		</tbody>
+	{% endfor%}
+</table>
+
+
+
+
+{% include "vuePied.html" %}

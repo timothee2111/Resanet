@@ -1,0 +1,46 @@
+{% include "vueEntete.html" %}
+{% include "vueEnteteGestionnaire.html" %}
+
+<style>
+.AvecCarte{ margin-bottom:10px; width: 1150px}
+table.padding{padding:20px}
+tr{border: 1px solid;}
+</style>
+
+<table class="AvecCarte" cellspacing="20">
+    <thead>
+        <tr>
+            <th colspan="2">N°Carte</th>
+            <th colspan="2">Solde</th>
+            <th colspan="2">Matricule</th>
+            <th colspan="2">Nom</th>
+            <th colspan="2">Prénom</th>
+            <th colspan="2">Service</th>
+        </tr>
+    </thead>
+    {% for i in avecCarte %}
+    <tbody>
+        <tr>
+            <td colspan="2">{{ i['matricule'] }} </td>
+            <td colspan="2">{{ i['solde'] }}</td>
+            <td colspan="2">{{ i['matricule'] }}</td>
+            <td colspan="2">{{ i['nom'] }}</td>
+            <td colspan="2">{{ i['prenom'] }}</td>
+            <td colspan="2">{{ i['nomService'] }}</td>
+            {% if i['activee'] == 0 %}
+                <td></td>
+                <td><a href="/gestionnaire/Personnel/AvecCarte/activer/{{i['matricule']}}" class="btn btn-success">Activer</a></td></form>
+                <td></td>
+            {% else %}
+                <td><a href="/gestionnaire/Personnel/AvecCarte/crediter/somme/{{i['matricule']}}" class="btn btn-primary">Créditer</a></td></form>
+                <td><a href="/gestionnaire/Personnel/AvecCarte/debiter/somme/{{i['matricule']}}" class="btn btn-primary">Débiter</a></td></form>
+                <td><a href="/gestionnaire/Personnel/AvecCarte/bloquer/{{i['matricule']}}" class="btn btn-danger">Bloquer</a></td></form>
+                <td><a href="/gestionnaire/Personnel/AvecCarte/reinitialiser/{{i['matricule']}}" class="btn btn-warning">Init. MDP</a></td></form>
+                <td><a href="/historique/{{ i['matricule'] }}" class="btn btn-info">Historique</a></td></form>
+            {% endif %}
+        </tr>
+    </tbody>
+    {% endfor %}
+</table>
+
+{% include "vuePied.html" %}

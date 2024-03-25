@@ -1,0 +1,22 @@
+{% include "vueEntete.html" %}
+{% include "vueEnteteGestionnaire.html" %}
+<h1>Réservations pour la date sélectionnée</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Numéro de carte</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reservation in reservations %}
+            <tr>
+                <td>{{ reservation.dateResa }}</td>
+                <td>{{ reservation.numeroCarte }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+   
+
+{% include "vuePied.html" %}

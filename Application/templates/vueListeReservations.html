@@ -1,0 +1,97 @@
+{% include "vueEntete.html" %}
+{% include "vueEnteteUsager.html" %}
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-4">
+			<p class="alert alert-danger" role="alert">Nous sommes le {{ lesDates[0]['fr']}}</p>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-1"></div>
+			{% for i in range(5) %}
+				<div class="col-md-1">
+				
+					<a
+					
+						{% if lesDates[i]['reservee'] %}
+							href="/usager/reservations/annuler/{{ lesDates[i]['iso'] }}" 
+							class="btn btn-success"
+							title= {{dayName[i]}}
+						{% else %}
+							href="/usager/reservations/enregistrer/{{ lesDates[i]['iso'] }}"
+							class="btn btn-default"
+							title= {{dayName[i]}}
+						{% endif %}
+						
+						{% if lesDates[i]['verrouillee'] %}
+							disabled="disabled"
+						{% endif %}
+					
+					>
+					
+						{{ lesDates[i]['fr'] }}
+					</a>
+				
+				</div>
+				<div class="col-md-1"></div>
+			
+			{% endfor%}
+
+	</div>
+	
+	<p></p>
+	
+	<div class="row">
+		<div class="col-md-1"></div>
+			{% for i in range(5,10) %}
+			
+				<div class="col-md-1">
+				
+					<a
+					
+						{% if lesDates[i]['reservee'] %}
+							href="/usager/reservations/annuler/{{ lesDates[i]['iso'] }}" 
+							class="btn btn-success"
+							title= {{dayName[i-5]}}
+						{% else %}
+							href="/usager/reservations/enregistrer/{{ lesDates[i]['iso'] }}"
+							class="btn btn-default"
+							title= {{dayName[i-5]}}
+						{% endif %}
+						
+						{% if lesDates[i]['verrouillee'] %}
+							disabled="disabled"
+						{% endif %}
+					
+					>
+					
+						{{ lesDates[i]['fr'] }}
+					</a>
+				
+				</div>
+				<div class="col-md-1"></div>
+			
+			{% endfor%}
+		
+	</div>
+	
+	<p></p>
+	
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-4">
+			
+			{% if soldeInsuffisant == True %}
+				<p class="alert alert-danger" role="alert">Solde insuffisant</p>
+			{% endif %}
+			
+		</div>
+		
+	</div>
+	
+</div>
+
+{% include "vuePied.html" %}

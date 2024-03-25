@@ -1,0 +1,15 @@
+{% include "vueEntete.html" %}
+{% include "vueEnteteGestionnaire.html" %}
+
+
+<form action="/gestionnaire/Personnel/AvecCarte/crediter/{{numeroCarte}}" method="POST">
+    <input type="number" class="form-control" name="somme" id="somme" placeholder="Valeur à créditer de la carte "/>
+    <td></td>
+    <td><button type="submit" class="btn btn-success">Valider</button></td>
+    <td><a href = "/gestionnaire/Personnel/AvecCarte" class="btn btn-danger">Annuler</a></td>
+</form>
+
+
+
+{% include "vuePied.html" %}
+

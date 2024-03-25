@@ -1,0 +1,8 @@
+{% include "vueEntete.html" %}
+{% include "vueEnteteGestionnaire.html" %}
+<form action="/gestionnaire/Reservations/date" method="POST">
+    <label for="date_resa">Sélectionner une date (format : YYYY-mm-dd) :</label>
+    <input type="text" id="date_resa" name="date_resa" placeholder="YYYY-mm-dd" pattern="\d{4}-\d{2}-\d{2}" required>
+    <button type="submit">Valider</button>
+</form>
+{% include "vuePied.html" %}

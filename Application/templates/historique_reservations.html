@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+{% include "vueEntete.html" %}
+{% include "vueEnteteGestionnaire.html" %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historique des Réservations</title>
+</head>
+<body>
+    <h1>Historique des Réservations</h1>
+    <ul>
+        {% if reservations %}
+            {% for reservation in reservations %}
+                <li>{{ reservation[0] }}</li>
+            {% endfor %}
+        {% else %}
+            <li>Aucune réservation trouvée.</li>
+        {% endif %}
+    </ul>
+</body>
+
+{% include "vuePied.html" %}
+
+</html>
